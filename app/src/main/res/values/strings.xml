@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Circuit</string>
+    <string name="add_item">Add Item</string>
+    <string name="logout">Logout</string>
+    <string name="welcome_to_circuit">Welcome to Circuit</string>
+    <string name="login_desc">Enter email and password to continue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="blank_email_or_password">Email or password can not be left blank!</string>
+    <string name="edit_item">Edit Item</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_price">Item Price</string>
+    <string name="save">Save</string>
+    <string name="no_items_added_yet">No Items added yet!</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="share">Share</string>
+</resources>
