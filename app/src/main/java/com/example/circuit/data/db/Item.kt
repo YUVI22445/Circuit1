@@ -9,5 +9,6 @@ data class Item(
         val price: String,
         val description: String?,
         val imageUrl: String?,
-        @PrimaryKey(autoGenerate = true) val id: Int = 0
+        var bought: Boolean,
+        @PrimaryKey(autoGenerate = true) val id: Int? = null
 )

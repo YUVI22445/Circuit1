@@ -20,5 +20,15 @@
     <string name="save">Save</string>
     <string name="no_items_added_yet">No Items added yet!</string>
     <string name="delete_item">Delete Item</string>
-    <string name="share">Share</string>
+    <string name="share">Delegate</string>
+    <string name="item_image">Item Image</string>
+    <string name="bought">Bought</string>
+    <string name="item_menu">Item Menu</string>
+    <string name="select_image">Select Image</string>
+    <string name="pick_image_from_gallery">Pick from Gallery</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="cancel">Cancel</string>
+<!--    <string name="no_image_picker_app_found">No image picker app found</string>-->
+    <string name="no_camera_app_found">No camera app found</string>
+
 </resources>
