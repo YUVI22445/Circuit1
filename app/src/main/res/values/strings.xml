@@ -12,6 +12,11 @@
     <string name="edit_item">Edit Item</string>
     <string name="item_name">Item Name</string>
     <string name="item_price">Item Price</string>
+    <string name="item_description">Item Description</string>
+    <string name="add_image">Add Image</string>
+    <string name="blank_name">Name can not be left blank!</string>
+    <string name="blank_price">Price can not be left blank!</string>
+    <string name="no_image_picker_app_found">No app found to pick an image</string>
     <string name="save">Save</string>
     <string name="no_items_added_yet">No Items added yet!</string>
     <string name="delete_item">Delete Item</string>
