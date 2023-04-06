@@ -15,12 +15,18 @@ import kotlinx.coroutines.launch
 class ItemsAdapter(private val listener: OnItemClickListener) :
     RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
-    private var items: List<Item> = listOf()
+    var items: List<Item> = listOf()
 
     interface OnItemClickListener {
         fun onEditClick(item: Item)
         fun onDeleteClick(item: Item)
         fun onShareClick(item: Item)
+    }
+    fun removeItem(position: Int) {
+        val removedItem = items[position]
+        items = items.toMutableList().apply { removeAt(position) }
+        notifyItemRemoved(position)
+        listener.onDeleteClick(removedItem)
     }
 
     class ViewHolder(val binding: LayoutListItemBinding) :
@@ -35,7 +41,7 @@ class ItemsAdapter(private val listener: OnItemClickListener) :
         return items.size
     }
 
-    fun setItems(items: List<Item>) {
+    fun updateItems(items: List<Item>) {
         this.items = items
         notifyDataSetChanged()
     }

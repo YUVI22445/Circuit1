@@ -17,6 +17,8 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.lifecycleScope
 import android.net.Uri
 import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 
 
 /**
@@ -38,10 +40,11 @@ class MainActivity : AppCompatActivity(), ItemsAdapter.OnItemClickListener {
         binding.addItem.setOnClickListener {
             startActivity(AddEditItemActivity.getIntent(this))
         }
+        setUpItemTouchHelper()
 
         vm.items.observe(this) {
             binding.noItemsTv.isVisible = it.isEmpty()
-            adapter.setItems(it)
+            adapter.updateItems(it)
         }
     }
 
@@ -99,4 +102,41 @@ class MainActivity : AppCompatActivity(), ItemsAdapter.OnItemClickListener {
             vm.deleteItem(item)
         }
     }
+    private fun setUpItemTouchHelper() {
+        val itemTouchCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false // We're not handling drag and drop in this example
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                when (direction) {
+                    ItemTouchHelper.LEFT -> {
+                        val itemToDelete = adapter.items[viewHolder.adapterPosition]
+
+                        // Delete the item from the database
+                        vm.deleteItem(itemToDelete)
+
+                        // Remove the item from the adapter
+                        adapter.removeItem(viewHolder.adapterPosition)
+                    }
+//                    ItemTouchHelper.RIGHT -> {
+//                        // Mark the item as bought
+//                        val item = adapter.items[viewHolder.adapterPosition]
+//                        item.bought = !item.bought
+//                        adapter.notifyItemChanged(viewHolder.adapterPosition)
+//                        lifecycleScope.launch {
+//                            CircuitApp.db.itemDao().update(item)                        }
+//                    }
+                }
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(itemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.itemsRv)
+    }
+
 }

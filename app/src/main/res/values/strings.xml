@@ -28,7 +28,8 @@
     <string name="pick_image_from_gallery">Pick from Gallery</string>
     <string name="take_photo">Take Photo</string>
     <string name="cancel">Cancel</string>
-<!--    <string name="no_image_picker_app_found">No image picker app found</string>-->
+    <!--    <string name="no_image_picker_app_found">No image picker app found</string>-->
     <string name="no_camera_app_found">No camera app found</string>
+    <string name="login_register">Login/Register</string>
 
 </resources>
